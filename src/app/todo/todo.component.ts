@@ -69,7 +69,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo() {
     this.routeR.navigate(['/']) 
-    this.todoService.deleteTodo(this.todo)
+    this.todoService.deleteTodo(this.todo) 
   }
 
   copmlete() {

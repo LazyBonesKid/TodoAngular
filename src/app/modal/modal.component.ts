@@ -14,7 +14,7 @@ export class ModalComponent {
   
 
   save() {
-    const arg = [this.title, this.text]
+    const arg = [this.title, this.text] 
     this.updateTodo.emit(arg) 
   }
 

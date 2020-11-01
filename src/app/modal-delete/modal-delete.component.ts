@@ -8,5 +8,5 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ModalDeleteComponent {
 
   @Output() close: EventEmitter<void> = new EventEmitter<void>() 
-  @Output() delete: EventEmitter<void> = new EventEmitter<void>() 
+  @Output() delete: EventEmitter<void> = new EventEmitter<void>()    
 }
