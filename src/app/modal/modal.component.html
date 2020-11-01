@@ -1,0 +1,16 @@
+
+
+<div class="backdrop"></div>
+
+<div class="modal">
+    <div class="card">
+        <div class="buttonDiv">
+            <button  class="btn" (click)="close.emit()">Close</button>
+        </div>
+        <h2>Title</h2>
+        <input type="text" [(ngModel)]="title"> 
+        <h2>Text</h2>
+        <textarea type="text" [(ngModel)]="text"></textarea>
+        <button class="btn" (click)="save()">Сохранить</button>
+    </div>
+</div>

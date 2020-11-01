@@ -1,0 +1,194 @@
+
+
+.navbar {
+  user-select: none;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  width: 100%;
+  margin-bottom: 1rem;
+  background: #739F3D;
+  // background: #E04A58; 
+  color: #fff;
+
+  div {
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+
+    li.active a {
+      font-weight: bold;
+      color: #333333;
+      cursor: default;
+    }
+  }
+
+  a {
+    font-size: 20px;
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}
+
+.content {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  
+}
+
+.menu {
+
+  top: 70.4px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  position: fixed;
+  left: 0%;
+  background: #fff ;
+  color: #000;
+  width: 220px;
+  height: 100%;
+  text-align: left;
+
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+
+  a {
+    width: max-content;
+  }
+  
+
+  button {
+    width: 100%;
+  }
+
+  .btnCont {
+    user-select: none;
+    padding: 10px;
+  }
+
+  .search {
+    display: flex;
+
+  }
+
+  .search-input {
+    border-right: 0px;
+    margin-bottom: 0px;
+    outline: none;
+    padding-right: 24px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .search-img {
+    background: transparent url("./img/Search.png") no-repeat center/cover;
+    width: 15px;
+    height: 16px;
+    left: 200px;
+    top: 63px;
+    position: absolute;
+  }
+
+  .qwe {
+    user-select: none;
+    height: 30px;
+    padding: 3px;
+    background: #f6f9fa;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .sort {
+    color: #757575;
+    text-align: start;
+    outline: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .sortOpen {
+    display: none; 
+  }
+
+  .ulList {
+    background: #fff;
+    position: relative;
+    z-index: 1000;
+    left: -3px;
+    width: 103.2%;
+    border: 1px solid #ccc;     
+  }
+
+
+  li {
+    &:hover {
+      background: #ccc;
+      opacity: 0.8;
+    }
+  }
+
+  .divLi {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+  }
+
+  i {
+    background: transparent url("./img/galochka.png") no-repeat center/cover;
+    height: 15px;
+    width: 18px;
+    margin: 5px;
+    position: absolute;
+    left: 20px;
+    display: none;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .todoList {
+    height: 67.5%;
+    width: 100%;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .todo {
+    padding: 8px 0px 0px 10px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .todoTable {
+    border-top: 1px solid black;
+  }
+
+
+  
+  a.active {
+      color: rgb(217, 255, 0);
+  }
+}
+
+.menuOpen {
+  left: -220px !important;
+}

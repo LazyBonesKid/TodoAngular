@@ -1,0 +1,55 @@
+textarea {
+    border: 0;
+    resize: none;
+    outline: none;
+    font-size: 1.5rem;;
+}
+
+.header {
+    display: flex;
+}
+
+
+.edit {
+    width: 10%;
+}
+
+.delete {
+    width: 10%;
+}
+
+.btn {
+    margin-right: 0px;
+}
+
+h1 {
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    padding: 5px;
+    padding-left: 8px;
+    overflow-wrap: break-word
+}
+
+.todoText {
+    margin-bottom: 20px;
+    padding: 5px;
+    margin-left: 0px;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-wrap: anywhere;
+}
+
+.todo-header {
+    justify-content: space-between; 
+    width: 100%;
+    display: flex;
+}
+
+.todo-complete {
+    background: lightblue;
+    width: 20%;
+}
+
+

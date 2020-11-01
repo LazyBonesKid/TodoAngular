@@ -1,0 +1,28 @@
+
+<div class="card" *ngIf="check">
+    <div class="header">
+        <h1 appTodoStyle bg="{{todo.bgColor}}">{{todo.title}}</h1>
+        <button class="btn edit" (click)="showModal()">edit</button>
+        <button class="btn delete" (click)="showModalDelete()">delete</button>
+    </div>
+    <p 
+        class="todoText"
+        area=" " 
+    >{{todo.text}}</p> 
+    <div class="todo-header">
+        <button class="btn" [routerLink]="['/']">HomePage</button>
+        <button *ngIf="todo.completed; else unset" class="btn" (click)="copmlete()">Отметить задачу как не выполненую</button>
+        <ng-template #unset>
+            <button class="btn" (click)="copmlete()">Отметить задачу как выполненую</button>
+        </ng-template> 
+        
+    </div>
+</div>
+
+<ng-template appModal ></ng-template> 
+
+<ng-template appModalDelete></ng-template>
+
+
+
+<!-- //bg="{{todo.bgColor}}" -->

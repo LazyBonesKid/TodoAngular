@@ -1,0 +1,26 @@
+<h1>Создание тудушки</h1>
+
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+
+  <div class="form-control">
+    <label>Название</label>
+    <input type="text"  formControlName="title">
+  </div> 
+
+  <div class="form-control">
+    <label>Текст</label>
+    <textarea formControlName="text"></textarea>
+  </div>
+
+  <!-- <div class="form-control">
+    <label>Цвет</label>
+    <select formControlName="bgColor">
+      <option value="#dc3545">Красный</option>
+      <option value="#739F3D">Зеленый</option>
+      <option value="#2D3033">Темный</option>
+    </select>
+  </div> -->
+
+  <button class="btn" type="submit" [disabled]="form.invalid">Сохранить дело</button>
+
+</form>
