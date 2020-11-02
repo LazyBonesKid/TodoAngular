@@ -3,7 +3,7 @@ import { Todo } from '../service/todo.service';
 
 @Pipe({
   name: 'search',
-  pure: false
+  pure: true
 })
 
 export class SearchPipe implements PipeTransform {

@@ -1,4 +1,5 @@
-import { DoCheck, Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 
 export interface Todo {
@@ -21,7 +22,8 @@ export interface Sort {
 
 export class TodoService {
 
-  public todoArr: Todo[] = (JSON.parse(localStorage.getItem('todoArr')) === null) ? [] : JSON.parse(localStorage.getItem('todoArr'))
+  stream$: Subject<Todo[]> = new Subject<Todo[]>()
+  todoArr: Todo[] = (JSON.parse(localStorage.getItem('todoArr')) === null) ? [] : JSON.parse(localStorage.getItem('todoArr'))
 
   public sortArr: Sort[] = [
     {text: 'По дате создания', value: 'date'},
@@ -31,6 +33,7 @@ export class TodoService {
   ]
   
 
+
   todoArrSave() {
     localStorage.setItem('todoArr', JSON.stringify(this.todoArr))
   }
@@ -39,19 +42,28 @@ export class TodoService {
     return this.todoArr.find( item => item.id === id)
   }
 
-  getData() {
-    return this.todoArr
+  replaceTodoArr() {
+    const copy: Todo[] = this.todoArr.map(todo => {
+      return Object.assign({}, todo)
+    })
+    this.todoArr = copy
+  }
+
+  savingState() {
+    this.todoArrSave() 
+    this.replaceTodoArr()
+    this.stream$.next(this.todoArr)
   }
 
   todoCompletedChange(todo: Todo) {
     todo.completed = !todo.completed
-
     if (todo.completed === false) {
       todo.bgColor = '#c73442'
     } else 
     if (todo.completed === true) {
       todo.bgColor = '#739F3D'
     }
+    this.savingState()
   }
 
   addTodo(todo: Todo) {
@@ -60,17 +72,16 @@ export class TodoService {
     todo.date = new Date();
     todo.bgColor = "#c73442"
     this.todoArr.unshift(todo)
+    this.savingState()
   } 
 
   deleteTodo(todo: Todo) {
-    console.log('deleteTodo');
     this.todoArr.forEach((item, i) => {
       if (item === todo) {
         this.todoArr.splice(i,1)
       }
     })
-
+    this.savingState()
   }
-
 
 }

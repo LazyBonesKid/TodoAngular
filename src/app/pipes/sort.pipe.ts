@@ -3,11 +3,10 @@ import { Todo } from '../service/todo.service';
 
 @Pipe({
   name: 'sort',
-  pure: false
+  pure: true
 })
 
 export class SortPipe implements PipeTransform {
-
 
   transform(todoArr: Todo[], sett: string): Todo[] {
     if (sett === '') {

@@ -3,7 +3,7 @@
   <div>
     <button   
     class="btn toggleMenu"
-    (click)="pageStatusService.menuToggle()"
+    (click)="menuStatus = !menuStatus"
     >menu</button>
     <h1>
       <a class="title" [routerLink]="['/']">TodoList</a>
@@ -13,21 +13,21 @@
 
 <div class="content">
 
-  <div class="menu" [class.menuOpen]="pageStatusService.getStatus('menu')" > 
+  <div class="menu" [class.menuOpen]="menuStatus" > 
     <div class="btnCont">
       <button class="btn" [routerLink]="['/add']"> Добавить дело</button>
     </div>
     <div class="search">
-      <input class="search-input" [(ngModel)]="pageStatusService.searchInput"  placeholder="Найти..." type="text">
+      <input class="search-input" [(ngModel)]="searchInput"  placeholder="Найти..." type="text">
       <div class="search-img"></div>
     </div>
     <div class="qwe">
-        <div class="sort"  (click)="pageStatusService.sortToggle()">Соритровка...</div>
+        <div class="sort"  (click)="sortStatus = !sortStatus">Соритровка...</div>
         <ul 
         class="ulList" 
-        [class.sortOpen]="pageStatusService.getStatus('sort')"
-        (click)="pageStatusService.sortToggle()"
-        (click)="pageStatusService.settChange($event)"
+        [class.sortOpen]="sortStatus"
+        (click)="sortStatus = !sortStatus"
+        (click)="settChange($event)"
         >
           <li *ngFor="let sett of sortArr; let ind = index">
             <div class="divLi" id="{{sett.value}}">
@@ -38,7 +38,7 @@
         </ul>
     </div>
     <div class="todoList">
-      <div *ngFor="let todo of todoArr  | search:pageStatusService.getStatus('search') | sort: pageStatusService.getStatus('sett')">
+      <div *ngFor="let todo of todoArr  | search: searchInput | sort: settValue">
         <div  class="todo" appTodoStyle bg="{{todo.bgColor}}"> 
           <a  routerLinkActive="active" [routerLink]="['/todo', todo.id]"> 
             <strong>{{todo.title}}</strong> 
@@ -52,7 +52,7 @@
     </div>
   </div> 
 
-  <div class="container" [class.contentOpen]="pageStatusService.getStatus('menu')">
+  <div class="container" [class.contentOpen]="menuStatus">
     <div class="card">   
       <router-outlet></router-outlet>
     </div>

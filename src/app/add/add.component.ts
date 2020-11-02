@@ -10,6 +10,7 @@ import { Todo, TodoService } from '../service/todo.service';
 export class AddComponent implements OnInit {
 
   form: FormGroup 
+  todoArr: Todo[]
 
   constructor(
     private todoService: TodoService  
